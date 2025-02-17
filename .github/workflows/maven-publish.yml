@@ -22,5 +22,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
 
-    - name: Run JAR
-      run: java -jar target/pets-0.0.1-SNAPSHOT.jar
+    - name: Build Docker image
+      run: docker build -t pets-app .
+
+    - name: Run Docker container with port mapping
+      run: docker run -d -p 80:8080 pets-app
