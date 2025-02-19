@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/pet")
+@RequestMapping("/")
 public class Pet {
 
     @GetMapping
+    public ResponseEntity<String> getPetFromProject(){
+        return ResponseEntity.ok("Hello World");
+    }
+
+    @GetMapping("/pet")
     public ResponseEntity<String> getPet(){
         return ResponseEntity.ok("Hello World");
     }
